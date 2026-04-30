@@ -1,3 +1,8 @@
 from django.shortcuts import render
+from django.http import HttpResponse
 
-# Create your views here.
+def product(request):
+    return HttpResponse("this is product page")
+
+# def product_list(request):
+#     return HttpResponse("this is product list page")
