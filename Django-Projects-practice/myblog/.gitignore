@@ -1,3 +1,5 @@
 venv
 __pycache__
 /media/irfan/irfan/Django/Django-Projects-practice/myblog/myblog/__pycache__
+
+db.sqlite3
