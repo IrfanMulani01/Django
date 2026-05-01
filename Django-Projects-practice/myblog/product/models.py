@@ -24,7 +24,7 @@ class Prod_review(models.Model):
     
 
 class Prod_Details(models.Model):
-    prod1 = models.ForeignKey(product, on_delete=models.CASCADE)
+    prod1 = models.OneToOneField(product, on_delete=models.CASCADE)
     prod_des = models.TextField()
     create_at = models.DateTimeField(auto_now_add=True)
 
