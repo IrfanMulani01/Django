@@ -28,5 +28,6 @@ class Prod_Details(models.Model):
     prod_des = models.TextField()
     create_at = models.DateTimeField(auto_now_add=True)
 
+
     def __str__(self):
         return self.prod1.prod_name
