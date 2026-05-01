@@ -6,3 +6,7 @@ def product(request):
 
 def product_list(request):
     return HttpResponse("this is product list page")
+
+
+def prod_cat(request):
+    return HttpResponse("this is product category page")
