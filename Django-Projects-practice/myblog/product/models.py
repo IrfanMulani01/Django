@@ -23,11 +23,15 @@ class Prod_review(models.Model):
         return self.prod.prod_name
     
 
-class Prod_Details(models.Model):
-    prod1 = models.OneToOneField(product, on_delete=models.CASCADE)
-    prod_des = models.TextField()
+    #####   one to one relationship     ######
+
+class User_profile(models.Model):
+    fname = models.CharField(max_length=100)
+    lname = models.CharField(max_length=100)
+    user_name = models.CharField(max_length=15)
+    password = models.CharField(max_length=10)
     create_at = models.DateTimeField(auto_now_add=True)
 
-
     def __str__(self):
-        return self.prod1.prod_name
+        return self.fname
+  
