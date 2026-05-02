@@ -24,7 +24,7 @@ class Prod_review(models.Model):
     
 
     #####   one to one relationship     ######
-class User(models.Model):
+class Users(models.Model):
     fname = models.CharField(max_length=100) 
     lname = models.CharField(max_length=100) 
     user_name = models.CharField(max_length=15) 
@@ -35,7 +35,7 @@ class User(models.Model):
         return self.fname
 
 class User_profile(models.Model):
-    user = models.OneToOneField(User, on_delete=models.CASCADE)
+    user = models.OneToOneField(Users, on_delete=models.CASCADE)
     change_pass = models.CharField(max_length=10)
     create_at = models.DateTimeField(auto_now_add=True)
 
