@@ -1,6 +1,10 @@
 from django.shortcuts import render
 from django.http import HttpResponse
 
+def home(request):
+    return HttpResponse("welcome")
+
+
 def product(request):
     return HttpResponse("this is product page")
 
