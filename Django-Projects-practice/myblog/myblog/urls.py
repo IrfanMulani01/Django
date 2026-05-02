@@ -7,5 +7,6 @@ urlpatterns = [
     # path('', views.hello),
     path('product/', include('product.urls')),
     path('teacher/', include('teacher.urls')),
-    
+    path('account/', include('account.urls')),
+
 ]
