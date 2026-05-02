@@ -53,4 +53,6 @@ class Course(models.Model):
 class Student(models.Model):
     name = models.CharField(max_length=100)
     courses = models.ManyToManyField(Course, related_name='Students')
-    
+
+    def __str__(self):
+        return self.name
