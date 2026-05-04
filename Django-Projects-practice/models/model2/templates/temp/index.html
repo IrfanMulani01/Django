@@ -21,7 +21,12 @@
         <form method="POST">
             {% csrf_token %}
             {{ form.as_p }}
+
             <button type="submit">Submit</button>
+
+            <br><br>
+
+            <a href="{% url 'record' %}">View Product List</a>
         </form>
         
         <script src="" async defer></script>
