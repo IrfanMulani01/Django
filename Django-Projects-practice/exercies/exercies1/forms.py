@@ -15,14 +15,14 @@ class StudenForm(forms.Form):
     
 class StudentModelForm(forms.ModelForm):
     class Meta:
-        models = Student
-        fields = ['name', 'age', 'email', 'password']
+        model = Student
+        fields = ['name', 'roll', 'email', 'password']
         widget =  {
             'password' : forms.PasswordInput()
         }
 
     def clean_roll(self):
-        roll = self.changed_data['roll']
+        roll = self.cleaned_data['roll']
         if roll <= 0:
             raise  forms.ValidationError("Age must be in positive")
         return roll
