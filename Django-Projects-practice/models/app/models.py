@@ -5,6 +5,8 @@ class Student(models.Model):
     roll_no = models.IntegerField()
     age = models.IntegerField()
 
+
+
     def __str__(self):
         return self.name
     
