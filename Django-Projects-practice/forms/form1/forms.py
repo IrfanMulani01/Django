@@ -1,4 +1,5 @@
 from django import forms
+from .models import Student
 
 class StudentForm(forms.Form):
     name = forms.CharField(max_length=50)
@@ -11,3 +12,9 @@ class StudentForm(forms.Form):
             raise forms.ValidationError("Age must be 18 or 18+")
         return age
     
+
+class StudentModelForm(forms.ModelForm):
+    class Meta:
+        model = Student
+        fields = ['name', 'email', 'age']
+        
