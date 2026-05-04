@@ -7,7 +7,7 @@ class AddStudent(forms.ModelForm):
         fields = ['name', 'email', 'age', 'course']
 
     def clean_age(self):
-        age = self.changed_data['age']
+        age = self.cleaned_data['age']
         if age < 18:
             raise forms.ValidationError("Age must be 18 or 18 + ")
         return age
