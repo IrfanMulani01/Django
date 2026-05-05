@@ -1,13 +1,13 @@
 from django.forms import fields
 from django import forms
-from .models import User_Profile
-  
-class Update_UserPorfile(forms.ModelForm):
+from .models import User, User_Profile
+
+class Add_user(forms.ModelForm):
     class Meta:
-        model = User_Profile
-        fields = ['user', 'bio', 'profile_pic']
+        model = User
+        fields = ['name', 'username', 'password']
         widget = {
-            'password' : forms.PasswordInput()
+            'password':forms.PasswordInput()
         }
 
     def clean_password(self):
@@ -15,3 +15,8 @@ class Update_UserPorfile(forms.ModelForm):
         if len(pas) <= 6:
             raise forms.ValidationError("Password must be greater than 6 characters")
         return pas
+    
+class Update_UserPorfile(forms.ModelForm):
+    class Meta:
+        model = User_Profile
+        fields = ['user', 'bio', 'profile_pic']
