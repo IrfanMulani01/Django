@@ -1,6 +1,6 @@
 from django.shortcuts import render
-from .forms import Add_user,Update_UserPorfile
-from .models import User_Profile
+from .forms import Add_user,Update_UserPorfile, User_profile
+from .models import User_Profile, User
 
 def add_user(request):
     if request.method == 'POST':
@@ -16,17 +16,31 @@ def add_user(request):
 
 
 def update_pro(request):
-    obj = User_Profile.objects.get(id=1) 
-    if not obj:
-        return render(request, 'temp/error.html', {'msg': 'Profile not found'})
-
     if request.method == 'POST':
-        form = Update_UserPorfile(request.POST, instance=obj)
-        if form.is_valid():
-            form.save()
-            return render(request, 'temp/success.html')
+        form = Update_UserPorfile(request.POST, request.FILES)
         
+        if form.is_valid():
+            profile = form.save(commit=False)
+            
+            # Automatically assign a user (temporary solution)
+            user_obj = User.objects.first()  # or filter by username etc.
+            if not user_obj:
+                user_obj = User.objects.create(
+                    name="Test User", 
+                    username="testuser", 
+                    password="password123"
+                )
+            
+            profile.user = user_obj
+            profile.save()
+            
+            return render(request, 'temp/success.html')
     else:
-        form = Update_UserPorfile(instance=obj)
-    
+        form = Update_UserPorfile()
+
     return render(request, 'temp/index.html', {'form': form})
+
+
+def user_pro(request):
+    user = User_Profile.objects.all()
+    return render(request, 'temp/userProfile.html', {'user': user})
