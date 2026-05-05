@@ -24,4 +24,5 @@ urlpatterns = [
     path('', include('app.urls')),
     path('model1/', include('model1.urls')),
     path('model2/', include('model2.urls')),
+    path('model3/', include('model3.urls')),
 ]
