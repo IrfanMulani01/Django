@@ -9,3 +9,12 @@ class User(models.Model):
     def __str__(self):
         return self.name
     
+class User_Profile(models.Model):
+    user = models.OneToOneField(User, on_delete=models.CASCADE)
+    bio = models.TextField()
+    profile_pic = models.ImageField()
+    create_at = models.DateTimeField(User.create_at, auto_now=True)
+
+    def __str__(self):
+        return self.user.name
+    
