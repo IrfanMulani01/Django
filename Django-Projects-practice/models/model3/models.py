@@ -12,7 +12,7 @@ class User(models.Model):
 class User_Profile(models.Model):
     user = models.OneToOneField(User, on_delete=models.CASCADE)
     bio = models.TextField()
-    profile_pic = models.ImageField()
+    profile_pic = models.ImageField(upload_to='prof_pic/')
     create_at = models.DateTimeField(auto_now=True)
 
     def __str__(self):
