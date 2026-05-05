@@ -1,0 +1,18 @@
+
+<h1>User Profile</h1>
+
+<ul>
+     {% for u in user %}
+    <li>
+        Name: {{ u.user.name }} <br>
+        Username: {{ u.user.username }} <br>
+        Bio: {{ u.bio }} <br>
+
+        Profile Pic:
+        <img src="{{ u.profile_pic.url }}" width="100" height="100">
+    </li>
+    {% empty %}
+    <li>No profiles found</li>
+    {% endfor %}
+</ul>
+
