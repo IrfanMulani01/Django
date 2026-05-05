@@ -40,6 +40,7 @@ INSTALLED_APPS = [
     'app',
     'model1',
     'model2',
+    'model3',
 ]
 
 MIDDLEWARE = [
